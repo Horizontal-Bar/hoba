@@ -1,0 +1,23 @@
+{
+    "projectType": "library",
+    "root": "libs/web/core/tui",
+    "sourceRoot": "libs/web/core/tui/src",
+    "prefix": "hoba",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/web/core/tui"],
+            "options": {
+                "jestConfig": "libs/web/core/tui/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/web/core/tui/src/**/*.ts", "libs/web/core/tui/src/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

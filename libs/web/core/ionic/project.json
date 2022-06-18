@@ -1,0 +1,23 @@
+{
+    "projectType": "library",
+    "root": "libs/web/core/ionic",
+    "sourceRoot": "libs/web/core/ionic/src",
+    "prefix": "hoba",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/web/core/ionic"],
+            "options": {
+                "jestConfig": "libs/web/core/ionic/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/web/core/ionic/src/**/*.ts", "libs/web/core/ionic/src/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

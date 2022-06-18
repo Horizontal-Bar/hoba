@@ -1,0 +1,50 @@
+{
+    "npmScope": "hoba",
+    "affected": {
+        "defaultBase": "master"
+    },
+    "cli": {
+        "defaultCollection": "@nrwl/angular",
+        "packageManager": "npm"
+    },
+    "implicitDependencies": {
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        ".eslintrc.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/nx-cloud",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"],
+                "accessToken": "N2I3MGM3Y2QtNzRiYy00N2E2LThjZTktZDZkMmY1MDQ4MmM4fHJlYWQtd3JpdGU="
+            }
+        }
+    },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "dependencies"
+            }
+        ]
+    },
+    "generators": {
+        "@nrwl/angular:application": {
+            "style": "less",
+            "linter": "eslint",
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "linter": "eslint",
+            "unitTestRunner": "jest"
+        },
+        "@nrwl/angular:component": {
+            "style": "less"
+        }
+    },
+    "defaultProject": "web"
+}

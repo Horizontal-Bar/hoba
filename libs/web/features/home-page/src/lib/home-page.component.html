@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>Home</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header
+        collapse="condense"
+        class="ion-no-border"
+    >
+        <ion-toolbar>
+            <ion-title size="large">Home</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="ion-padding">
+        <ion-button
+            expand="block"
+            (click)="pingApi()"
+        >
+            Ping Api
+        </ion-button>
+
+        <ion-button
+            expand="block"
+            (click)="pingWs()"
+        >
+            Ping Ws
+        </ion-button>
+    </div>
+</ion-content>

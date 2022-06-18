@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "projects": {
+        "api": "apps/api",
+        "shared-interfaces": "libs/shared/interfaces",
+        "web": "apps/web",
+        "web-core-http": "libs/web/core/http",
+        "web-core-ionic": "libs/web/core/ionic",
+        "web-core-store": "libs/web/core/store",
+        "web-core-tui": "libs/web/core/tui",
+        "web-features-home-page": "libs/web/features/home-page",
+        "web-shell": "libs/web/shell",
+        "ws": "apps/ws"
+    }
+}
