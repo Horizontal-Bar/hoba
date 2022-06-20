@@ -1,0 +1,26 @@
+{
+    "projectType": "library",
+    "root": "libs/web/shared/accelerometer",
+    "sourceRoot": "libs/web/shared/accelerometer/src",
+    "prefix": "hoba",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/web/shared/accelerometer"],
+            "options": {
+                "jestConfig": "libs/web/shared/accelerometer/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/web/shared/accelerometer/src/**/*.ts",
+                    "libs/web/shared/accelerometer/src/**/*.html"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

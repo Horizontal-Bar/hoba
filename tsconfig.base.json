@@ -21,6 +21,7 @@
             "@hoba/web/core/store": ["libs/web/core/store/src/index.ts"],
             "@hoba/web/core/tui": ["libs/web/core/tui/src/index.ts"],
             "@hoba/web/features/home-page": ["libs/web/features/home-page/src/index.ts"],
+            "@hoba/web/shared/accelerometer": ["libs/web/shared/accelerometer/src/index.ts"],
             "@hoba/web/shell": ["libs/web/shell/src/index.ts"]
         }
     },

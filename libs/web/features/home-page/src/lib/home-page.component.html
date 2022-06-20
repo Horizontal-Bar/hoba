@@ -28,5 +28,14 @@
         >
             Ping Ws
         </ion-button>
+
+        <ion-item>
+            <ion-label>Accel:</ion-label>
+            <p>{{accelerometerService.accelData$ | async | json}}</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Accel State: {{accelerometerService.state$ | async}}</ion-label>
+        </ion-item>
     </div>
 </ion-content>
