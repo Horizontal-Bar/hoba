@@ -1,0 +1,23 @@
+{
+    "projectType": "library",
+    "root": "libs/web/core/http",
+    "sourceRoot": "libs/web/core/http/src",
+    "prefix": "hoba",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/web/core/http"],
+            "options": {
+                "jestConfig": "libs/web/core/http/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/web/core/http/src/**/*.ts", "libs/web/core/http/src/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

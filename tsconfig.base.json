@@ -1,0 +1,28 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@hoba/shared/interfaces": ["libs/shared/interfaces/src/index.ts"],
+            "@hoba/web/core/http": ["libs/web/core/http/src/index.ts"],
+            "@hoba/web/core/ionic": ["libs/web/core/ionic/src/index.ts"],
+            "@hoba/web/core/store": ["libs/web/core/store/src/index.ts"],
+            "@hoba/web/core/tui": ["libs/web/core/tui/src/index.ts"],
+            "@hoba/web/features/home-page": ["libs/web/features/home-page/src/index.ts"],
+            "@hoba/web/shell": ["libs/web/shell/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}
