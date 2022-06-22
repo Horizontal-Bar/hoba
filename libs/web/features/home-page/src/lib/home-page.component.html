@@ -31,11 +31,7 @@
 
         <ion-item>
             <ion-label>Accel:</ion-label>
-            <p>{{accelerometerService.accelData$ | async | json}}</p>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>Accel State: {{accelerometerService.state$ | async}}</ion-label>
+            <p>{{accelerometerService.listenAcceleration$() | async | json}}</p>
         </ion-item>
     </div>
 </ion-content>

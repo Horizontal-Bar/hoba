@@ -9,6 +9,7 @@ import {WebCoreHttpModule} from '@hoba/web/core/http';
 import {WebCoreStoreModule} from '@hoba/web/core/store';
 
 import {AppComponent} from './app.component';
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -28,6 +29,8 @@ import {AppComponent} from './app.component';
             },
         ]),
     ],
+
+    providers: [DeviceMotion],
 
     bootstrap: [AppComponent],
 })

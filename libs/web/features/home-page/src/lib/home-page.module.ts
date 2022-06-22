@@ -1,8 +1,9 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HomePageComponent} from './home-page.component';
-import {RouterModule} from '@angular/router';
-import {IonicModule} from '@ionic/angular';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HomePageComponent } from './home-page.component';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
 
 @NgModule({
     declarations: [HomePageComponent],
@@ -17,4 +18,4 @@ import {IonicModule} from '@ionic/angular';
         IonicModule,
     ],
 })
-export class HomePageModule {}
+export class HomePageModule { }

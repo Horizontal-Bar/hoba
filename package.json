@@ -29,6 +29,7 @@
         "@angular/platform-browser": "~13.3.0",
         "@angular/platform-browser-dynamic": "~13.3.0",
         "@angular/router": "~13.3.0",
+        "@awesome-cordova-plugins/core": "^5.43.0",
         "@awesome-cordova-plugins/device-motion": "^5.43.0",
         "@capacitor/app": "1.1.1",
         "@capacitor/core": "3.6.0",
