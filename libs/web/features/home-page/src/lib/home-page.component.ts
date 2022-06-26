@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, NgZone} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {SocketService} from './services/socket.service';
 import {ApiService} from './services/api.service';
 import {ToastController} from '@ionic/angular';

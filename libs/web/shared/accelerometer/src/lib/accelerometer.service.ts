@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, catchError, distinctUntilChanged, from, share, shareReplay, switchMap, tap, throttleTime } from "rxjs";
+import { BehaviorSubject, catchError, distinctUntilChanged, from, shareReplay, switchMap, throttleTime } from "rxjs";
 import { needToInverseAxes } from "./utils";
 
 @Injectable({
