@@ -29,9 +29,21 @@
             Ping Ws
         </ion-button>
 
+        <ion-button expand="block" (click)="onAccelClick()">{{(accelerometerService.accelActive$ | async) ? 'Stop ' : 'Start '}}accel</ion-button>
+
         <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
             <ion-label>Accel:</ion-label>
-            <p>{{accelerometerService.listenAcceleration$() | async | json}}</p>
         </ion-item>
+
+        <div *ngIf="(accelerometerService.state$ | async) as accel">
+            <p>Accel x: {{accel.acceleration?.x}}</p>
+            <p>Accel y: {{accel.acceleration?.y}}</p>
+            <p>Accel z: {{accel.acceleration?.z}}</p>
+            <p>Accel inc gravity x: {{accel.accelerationIncludingGravity?.x}}</p>
+            <p>Accel inc gravity y: {{accel.accelerationIncludingGravity?.y}}</p>
+            <p>Accel inc gravity z: {{accel.accelerationIncludingGravity?.z}}</p>
+        </div>
     </div>
+
 </ion-content>

@@ -9,7 +9,7 @@
         "start:web": "nx serve web",
         "start:api": "nx serve api",
         "start:ws": "nx serve ws",
-        "start:web:shared": "nx serve web --host=0.0.0.0 --disable-host-check",
+        "start:web:shared": "nx serve web --ssl --host=0.0.0.0 --disable-host-check",
         "build": "nx build",
         "test": "nx test",
         "postinstall": "husky install && ngcc --properties es2015 browser module main"

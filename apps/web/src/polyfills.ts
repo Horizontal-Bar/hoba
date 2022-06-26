@@ -41,6 +41,8 @@
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
+(window as any).__zone_symbol__UNPATCHED_EVENTS = ['devicemotion']; // disable patch specified eventNames
+(window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['devicemotion']; // disable patch specified eventNames
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.

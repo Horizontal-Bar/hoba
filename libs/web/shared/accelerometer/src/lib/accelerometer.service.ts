@@ -1,33 +1,76 @@
 import { Injectable } from "@angular/core";
-import { DeviceMotionAccelerometerOptions } from '@awesome-cordova-plugins/device-motion/ngx';
-import { Subject } from "rxjs";
+import { BehaviorSubject, catchError, distinctUntilChanged, from, share, shareReplay, switchMap, tap, throttleTime } from "rxjs";
+import { needToInverseAxes } from "./utils";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AccelerometerService {
 
-    private hasListener = false;
+    private internalState$ = new BehaviorSubject<DeviceMotionEvent | null>(null);
 
-    accel$ = new Subject();
+    get state$() {
+        return this.internalState$.pipe(shareReplay(1), distinctUntilChanged(), throttleTime(40));
+    }
 
-    constructor() { }
+    isReverseAxes = needToInverseAxes();
+
+    accelActive$ = new BehaviorSubject(false);
 
     listenAcceleration$() {
-        if (!this.hasListener) {
-            this.accel$.next(new DeviceMotionEvent('devicemotion'));
-            window.addEventListener('devicemotion', this.motionFn);
-            this.hasListener = true;
+        if (this.accelActive$.value) {
+            return this.state$;
         }
-        return this.accel$;
+        this.accelActive$.next(true);
+        if (typeof (DeviceMotionEvent as any).requestPermission === 'function') {
+
+            const requestPermissionState = (DeviceMotionEvent as any).requestPermission() as Promise<string>;
+
+            // requestPermissionState.then(st => {
+            //     alert(st);
+            // })
+
+            return from(requestPermissionState.then(state => {
+                if (state === 'granted') {
+                    this.startListen();
+                }
+
+                return state;
+            })).pipe(
+                switchMap(() => {
+                    return this.state$;
+                }),
+                catchError(err => {
+                    console.error(err);
+                    this.accelActive$.next(false);
+                    this.stopListen();
+
+                    return this.state$;
+                })
+            );
+        } else {
+            this.startListen();
+
+            return this.state$;
+        }
     }
 
     stopListenAcceleration() {
-        window.removeEventListener('devicemotion', this.motionFn);
+        console.log('stop it!');
+        this.stopListen();
+        this.accelActive$.next(false);
     }
 
-    private motionFn = (event: any) => {
-        console.log(event.acceleration.x + ' m/s2');
-        this.accel$.next(event);
+    private handleMotionEvent = (event: DeviceMotionEvent) => {
+        this.internalState$.next(event);
+    }
+
+    private startListen() {
+        window.addEventListener('devicemotion', this.handleMotionEvent, true);
+    }
+
+    private stopListen() {
+        window.removeEventListener('devicemotion', this.handleMotionEvent, true);
+        this.internalState$.next(null);
     }
 }
