@@ -6,12 +6,18 @@
     "scripts": {
         "ng": "nx",
         "bootstrap": "npm ci",
-        "start:web": "nx serve web",
+        "start:web": "nx serve web --ssl --host 0.0.0.0 --disable-host-check",
         "start:api": "nx serve api",
         "start:ws": "nx serve ws",
         "build": "nx build",
         "test": "nx test",
         "postinstall": "husky install && ngcc --properties es2015 browser module main"
+    },
+    "lint-staged": {
+        "*.{js,ts,html,md,less,json}": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "dependencies": {
         "@angular/animations": "~13.3.0",
@@ -25,9 +31,11 @@
         "@ionic/angular": "^6.1.10",
         "@nestjs/common": "^8.0.0",
         "@nestjs/core": "^8.0.0",
+        "@nestjs/mongoose": "^9.1.1",
         "@nestjs/platform-express": "^8.0.0",
         "@nestjs/platform-socket.io": "^8.4.7",
         "@nestjs/websockets": "^8.4.7",
+        "@ng-web-apis/common": "^2.0.0",
         "@ngrx/effects": "^13.2.0",
         "@ngrx/entity": "^13.2.0",
         "@ngrx/router-store": "^13.2.0",
@@ -38,10 +46,13 @@
         "@taiga-ui/core": "^2.49.2",
         "@taiga-ui/icons": "^2.49.2",
         "@taiga-ui/kit": "^2.49.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.4.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "~7.4.0",
         "socket.io-client": "^4.5.1",
         "tslib": "^2.0.0",
+        "uuid": "^8.3.2",
         "zone.js": "~0.11.4"
     },
     "devDependencies": {
@@ -66,7 +77,9 @@
         "@nxtend/ionic-angular": "^13.1.0",
         "@tinkoff/prettier-config": "^1.32.1",
         "@types/jest": "27.0.2",
+        "@types/jsonwebtoken": "^8.5.8",
         "@types/node": "16.11.7",
+        "@types/uuid": "^8.3.4",
         "@typescript-eslint/eslint-plugin": "~5.18.0",
         "@typescript-eslint/parser": "~5.18.0",
         "cypress": "^9.1.0",
@@ -81,11 +94,5 @@
         "prettier": "^2.5.1",
         "ts-jest": "27.0.5",
         "typescript": "~4.6.2"
-    },
-    "lint-staged": {
-        "*.{js,ts,html,md,less,json}": [
-            "prettier --write",
-            "git add"
-        ]
     }
 }

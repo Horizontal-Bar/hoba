@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {SocketService} from './services/socket.service';
 import {ApiService} from './services/api.service';
 import {ToastController} from '@ionic/angular';
+import {TelegramUserCredentials} from '@hoba/web/shared/telegram-login';
 
 // TODO: страница и сервисы просто для примера
 @Component({
@@ -28,5 +29,12 @@ export class HomePageComponent {
     private async showToast(message: string) {
         const toast = await this.toastController.create({message});
         await toast.present();
+    }
+
+    onTelegramAuth(telegramUser: TelegramUserCredentials) {
+        this.apiService.loginViaTelegram(telegramUser).subscribe(d => {
+            console.log(d);
+            this.showToast('см консоль');
+        });
     }
 }
