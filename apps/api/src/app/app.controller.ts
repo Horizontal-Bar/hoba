@@ -1,5 +1,5 @@
 import {Controller, Get} from '@nestjs/common';
-import {PingResponse} from "@hoba/shared/interfaces";
+import {PingResponse} from '@hoba/shared/interfaces';
 
 @Controller()
 export class AppController {

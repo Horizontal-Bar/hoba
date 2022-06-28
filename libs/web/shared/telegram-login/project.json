@@ -1,0 +1,26 @@
+{
+    "projectType": "library",
+    "root": "libs/web/shared/telegram-login",
+    "sourceRoot": "libs/web/shared/telegram-login/src",
+    "prefix": "hoba",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/web/shared/telegram-login"],
+            "options": {
+                "jestConfig": "libs/web/shared/telegram-login/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/web/shared/telegram-login/src/**/*.ts",
+                    "libs/web/shared/telegram-login/src/**/*.html"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

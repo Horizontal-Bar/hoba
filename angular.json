@@ -9,6 +9,7 @@
         "web-core-store": "libs/web/core/store",
         "web-core-tui": "libs/web/core/tui",
         "web-features-home-page": "libs/web/features/home-page",
+        "web-shared-telegram-login": "libs/web/shared/telegram-login",
         "web-shell": "libs/web/shell",
         "ws": "apps/ws"
     }
